@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <form name="op" action="">
+        
+        <label for="valor1">Valor 1:</label>
+        <input type="text" name="valor1" id="valor1" />
+        <br />
+        <br />
+        <label for="valor2">Valor 2:</label>
+        <input type="text" name="valor2" id="valor2" />
+        <br />
+        <br />
+
+        <label for="oper">Selecione a operação:</label>
+        <select name="oper" id="oper">
+            <option value="somar">Somar</option>
+            <option value="subtrair">Subtrair</option>
+            <option value="dividir">Dividir</option>
+            <option value="multiplicar">Multiplicar</option>
+        </select>
+
+        <br />
+        <br />
+        <label for="res">Resultado:</label>
+        <input type="text" name="res" id="res" />
+        <br />
+        <br />
+        <input type="button" value="Calcular" class="botao" onclick="calcular(document.op.oper.value)" />
+
+    </form>
+
+    <script>
+        function calcular(oper) {
+
+            var valor1 = document.op.valor1.value;
+            var valor2 = document.op.valor2.value;
+
+            if(oper == "somar") {
+                var res = parseInt(valor1) + parseInt(valor2);
+            } else {
+                if (oper == "subtrair") {
+                    var res = valor1-valor2;
+                } else {
+                    if (oper == "multiplicar") {
+                        var res = valor1*valor2;
+                    } else {
+                        var res = valor1/valor2;
+                    }
+                }
+            }
+
+            document.op.res.value = res;
+        }
+
+    </script>
+    
+</body>
+</html>
